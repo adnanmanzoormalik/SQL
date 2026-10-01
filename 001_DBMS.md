@@ -116,10 +116,8 @@ is the number of instances in one entity which is associated to the number of in
 M:M -> many to many
 
 
-
 crow foot notation
 ![alt text](image.png)
-
 
 NOTE: to make a M:M relation we need three tables
 
