@@ -1,0 +1,416 @@
+# SQL LEARNING ROADMAP — BASICS TO ADVANCED
+
+**Database:** MySQL 8.0+
+**IDE:** MySQL Workbench
+**Approach:** Detailed phases, practical examples, output-based questions, coding practice, debugging, and revision.
+
+---
+
+# PART 1 — DATABASE AND TABLE FUNDAMENTALS
+
+**Level: Beginner**
+
+## Phase 1: Creating Databases and Tables
+
+1. CREATE DATABASE
+2. SHOW DATABASES
+3. USE
+4. CREATE TABLE
+5. SQL Data Types: INT, VARCHAR, TEXT, DATE, DECIMAL, BOOLEAN
+6. DESCRIBE
+7. SHOW TABLES
+8. Inspecting Table Structures
+
+## Phase 2: Retrieving Data
+
+1. SELECT
+2. SELECT *
+3. Selecting Specific Columns
+4. Column Aliases Using AS
+5. SELECT DISTINCT
+6. LIMIT
+7. OFFSET
+
+## Phase 3: Inserting and Modifying Data
+
+1. INSERT INTO
+2. Inserting Single and Multiple Rows
+3. UPDATE
+4. DELETE
+5. ALTER TABLE
+6. Adding Columns
+7. Modifying Columns
+8. Renaming Columns
+9. Dropping Columns
+10. DROP TABLE
+11. TRUNCATE TABLE
+12. DELETE vs TRUNCATE vs DROP
+13. Safe Data Modification Practices
+
+---
+
+# PART 2 — FILTERING, SORTING AND FUNCTIONS
+
+**Level: Beginner to Intermediate**
+
+## Phase 1: Filtering Records
+
+1. WHERE
+2. Comparison Operators: =, !=, <>, >, <, >=, <=
+3. Logical Operators: AND, OR, NOT
+4. Operator Precedence
+5. Using Parentheses in Conditions
+6. BETWEEN
+7. IN
+8. NOT IN
+9. LIKE
+10. NOT LIKE
+11. Wildcards: % and _
+12. IS NULL
+13. IS NOT NULL
+
+## Phase 2: Sorting and Limiting Results
+
+1. ORDER BY
+2. ASC and DESC
+3. Sorting by Multiple Columns
+4. LIMIT
+5. OFFSET
+6. Pagination Basics
+
+## Phase 3: String Functions
+
+1. CONCAT()
+2. LENGTH()
+3. UPPER()
+4. LOWER()
+5. TRIM()
+6. SUBSTRING()
+7. REPLACE()
+
+## Phase 4: Numeric Functions
+
+1. ROUND()
+2. CEIL()
+3. FLOOR()
+4. ABS()
+5. MOD()
+
+## Phase 5: Date and Time Functions
+
+1. CURDATE()
+2. NOW()
+3. DATEDIFF()
+4. DATE_ADD()
+5. DATE_SUB()
+6. Extracting Year, Month, and Day
+
+## Phase 6: Conditional Functions and Type Conversion
+
+1. CASE WHEN
+2. IF()
+3. IFNULL()
+4. COALESCE()
+5. CAST()
+6. CONVERT()
+7. Implicit vs Explicit Type Conversion
+
+---
+
+# PART 3 — CONSTRAINTS, RELATIONSHIPS AND AGGREGATION
+
+**Level: Intermediate**
+
+## Phase 1: Database Constraints
+
+1. PRIMARY KEY
+2. AUTO_INCREMENT
+3. NOT NULL
+4. UNIQUE
+5. DEFAULT
+6. CHECK
+7. FOREIGN KEY
+8. Referential Integrity
+9. ON DELETE
+10. ON UPDATE
+11. Composite Primary Keys
+
+## Phase 2: Relationships and Database Design
+
+1. One-to-One Relationships
+2. One-to-Many Relationships
+3. Many-to-Many Relationships
+4. Junction Tables
+5. Entity Relationship Diagrams (ERDs)
+6. Candidate Keys
+7. Natural Keys vs Surrogate Keys
+
+## Phase 3: Aggregate Functions
+
+1. COUNT()
+2. SUM()
+3. AVG()
+4. MIN()
+5. MAX()
+6. COUNT(*) vs COUNT(column)
+7. How Aggregate Functions Handle NULL
+
+## Phase 4: Grouping and Conditional Aggregation
+
+1. GROUP BY
+2. Grouping by Multiple Columns
+3. HAVING
+4. WHERE vs HAVING
+5. Aggregate Conditions
+6. CASE WHEN with Aggregate Functions
+7. Conditional Aggregation
+
+## Phase 5: Database Normalization
+
+1. Database Redundancy
+2. Data Anomalies
+3. First Normal Form (1NF)
+4. Second Normal Form (2NF)
+5. Third Normal Form (3NF)
+6. Introduction to BCNF
+7. Normalization vs Denormalization
+
+---
+
+# PART 4 — JOINS AND SUBQUERIES
+
+**Level: Intermediate**
+
+## Phase 1: Basic Joins
+
+1. Understanding Joins
+2. INNER JOIN
+3. LEFT JOIN
+4. RIGHT JOIN
+5. Table Aliases
+6. Qualified Column Names
+7. Joining Tables Using Primary and Foreign Keys
+
+## Phase 2: Advanced Join Techniques
+
+1. CROSS JOIN
+2. SELF JOIN
+3. Joining Three or More Tables
+4. Multiple Join Conditions
+5. ON vs WHERE in Joins
+6. Finding Unmatched Records
+7. Handling Duplicate Rows Caused by Joins
+
+## Phase 3: Subquery Fundamentals
+
+1. What Is a Subquery?
+2. Scalar Subqueries
+3. Single-Row Subqueries
+4. Multiple-Row Subqueries
+5. Subqueries in WHERE
+6. Subqueries in SELECT
+7. Subqueries in FROM
+8. Correlated Subqueries
+9. Non-Correlated Subqueries
+
+## Phase 4: Advanced Subquery Patterns
+
+1. IN and NOT IN with Subqueries
+2. EXISTS
+3. NOT EXISTS
+4. ANY
+5. ALL
+6. EXISTS vs IN
+7. Subqueries vs Joins
+8. Finding the Second-Highest Salary
+9. Finding Values Above the Average
+10. Finding Records with Missing Relationships
+
+---
+
+# PART 5 — ADVANCED SQL QUERYING
+
+**Level: Intermediate to Advanced**
+
+## Phase 1: Set Operations
+
+1. UNION
+2. UNION ALL
+3. Removing Duplicate Rows
+4. Column Compatibility Requirements
+5. Set Operations vs Joins
+6. Introduction to INTERSECT and EXCEPT Where Supported
+
+## Phase 2: Query Execution and CTEs
+
+1. Logical SQL Query Execution Order
+2. Common Table Expressions (CTEs)
+3. WITH Clause
+4. Creating Multiple CTEs
+5. CTEs vs Subqueries
+6. Recursive CTE Basics
+7. Hierarchical Data Using CTEs
+
+## Phase 3: Window Function Fundamentals
+
+1. What Are Window Functions?
+2. OVER()
+3. PARTITION BY
+4. ORDER BY Inside Window Functions
+5. Window Functions vs GROUP BY
+6. ROW_NUMBER()
+7. RANK()
+8. DENSE_RANK()
+
+## Phase 4: Advanced Window Functions
+
+1. LAG()
+2. LEAD()
+3. FIRST_VALUE()
+4. LAST_VALUE()
+5. Running Totals
+6. Moving Averages
+7. Ranking Within Groups
+8. Top N Records Per Group
+9. Percentage of Total
+10. Window Frames and Frame Clauses
+
+## Phase 5: Combining SQL Techniques
+
+1. Combining Joins and Aggregates
+2. Combining CTEs and Window Functions
+3. Multi-Step Analytical Queries
+4. Ranking and Filtering Results
+5. Solving Complex Real-World Problems
+
+---
+
+# PART 6 — PRACTICAL DATABASE SKILLS AND PROJECTS
+
+**Level: Intermediate to Advanced**
+
+## Phase 1: Transactions
+
+1. START TRANSACTION
+2. COMMIT
+3. ROLLBACK
+4. SAVEPOINT
+5. ACID Properties
+6. Basic Transaction Isolation Levels
+7. Dirty Reads
+8. Non-Repeatable Reads
+9. Phantom Reads
+10. Basic Deadlock Concepts
+
+## Phase 2: Indexes and Query Performance
+
+1. What Is an Index?
+2. Primary and Secondary Indexes
+3. Unique Indexes
+4. Composite Indexes
+5. Clustered vs Secondary Indexes in InnoDB
+6. Index Selectivity
+7. Column Order in Composite Indexes
+8. When to Use Indexes
+9. When Indexes Can Hurt Performance
+10. EXPLAIN
+11. Basic Query Optimization
+
+## Phase 3: Views and Database Objects
+
+1. Views
+2. CREATE VIEW
+3. Updating Data Through Views
+4. Stored Procedures
+5. Procedure Parameters
+6. Basic User-Defined Functions
+7. Triggers
+8. Introduction to Scheduled Events
+9. Choosing Between Views, Procedures, and Triggers
+
+## Phase 4: Security and Database Management
+
+1. Database Users
+2. GRANT
+3. REVOKE
+4. Database Privileges
+5. Least-Privilege Principle
+6. SQL Injection
+7. Parameterized Queries
+8. Database Backups
+9. Importing and Exporting Data
+10. Database Migrations
+
+## Phase 5: Real-World Query Problems
+
+1. Finding Duplicate Records
+2. Handling Duplicates Safely
+3. Finding Missing Relationships
+4. Conditional Aggregation
+5. Top N Records Per Category
+6. Consecutive Dates and Streaks
+7. Introduction to Gaps and Islands
+8. Handling Ties in Rankings
+9. Sales and Revenue Analysis
+10. Monthly and Yearly Growth
+11. Customer Retention and Repeat Purchases
+12. Conversion Rate Analysis
+
+## Phase 6: SQL Interview Preparation
+
+1. Beginner-Level Questions
+2. Intermediate-Level Questions
+3. Advanced Query-Writing Questions
+4. Output-Based Questions
+5. Debugging Incorrect Queries
+6. Joins and Aggregation Challenges
+7. Subquery Challenges
+8. CTE and Window Function Challenges
+9. Timed SQL Practice
+
+## Phase 7: Projects
+
+### Project 1 — Student Management System
+
+* Create databases and related tables.
+* Store student, course, and enrollment information.
+* Apply constraints and relationships.
+* Write filtering, grouping, and join queries.
+* Generate student performance reports.
+
+### Project 2 — E-commerce Database
+
+* Create customers, products, orders, and order details tables.
+* Establish primary and foreign keys.
+* Query customer purchases and order history.
+* Calculate revenue and product sales.
+* Identify top-selling products and repeat customers.
+* Use joins, subqueries, CTEs, and window functions.
+
+### Project 3 — Sales Analysis
+
+* Import a realistic dataset.
+* Analyze revenue by product and month.
+* Calculate growth rates and category performance.
+* Rank products and sales representatives.
+* Create views for reporting.
+* Practice indexes and basic query optimization.
+
+---
+
+# STUDY METHOD
+
+For each phase, follow this sequence:
+
+1. Learn the concept and syntax.
+2. Understand examples step by step.
+3. Execute queries on our sample database.
+4. Solve output-based questions.
+5. Solve coding questions independently.
+6. Debug incorrect queries.
+7. Complete mixed revision questions.
+8. Receive a copyable summary.
+
+**Important:** We will start directly with creating databases and tables because the basic SQL theory is already familiar to you. We will use MySQL 8.0+ and build on the same sample database throughout the course.
+
+We will skip highly specialized topics such as replication administration, partitioning internals, and advanced locking or performance-engineering techniques for now.

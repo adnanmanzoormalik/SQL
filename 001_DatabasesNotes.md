@@ -143,7 +143,7 @@ ROLLBACK
 GRANT
 REVOKE
 
-
+Schema: A schema describes the structure and organization of a database's objects, such as tables, columns, views, and relationships.
 
 Data Types:
 (w3schools) >>> MySQL data types
@@ -158,5 +158,3 @@ this is a multi line comment
 */
 
 
-time:
-139:00:00
