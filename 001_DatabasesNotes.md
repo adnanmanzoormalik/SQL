@@ -157,4 +157,200 @@ Comments:
 this is a multi line comment
 */
 
+                            PART 3 — PHASE 5: NORMALIZATION
+1. What is Normalization?
+Normalization is the process of organizing data into well-structured tables to:
+- Reduce data redundancy
+- Prevent data anomalies
+- Improve data consistency
+- Make relationships between data clearer
+The main normal forms we need to know:
+1NF → 2NF → 3NF → BCNF
+2. Data Redundancy
+Redundancy means storing the same information unnecessarily multiple times.
+Example:
+student_id | student_name | course
+-----------|--------------|--------
+1          | Adnan        | SQL
+1          | Adnan        | Python
+1          | Adnan        | Java
+
+Adnan is repeated multiple times.
+Too much redundancy can cause problems when data needs to be inserted, updated, or deleted.
+3. Data Anomalies
+Normalization helps prevent three major anomalies.
+A. Update Anomaly
+The same information is stored in multiple rows, so updating it requires changing multiple places.
+Example:
+student_id | student_name | course
+-----------|--------------|--------
+1          | Adnan        | SQL
+1          | Adnan        | Python
+
+If Adnan's name changes, multiple rows need to be updated.
+If one row is missed, the database becomes inconsistent.
+B. Insert Anomaly
+You cannot insert some information without also providing unrelated information.
+Example:
+student_id | student_name | course
+-----------|--------------|--------
+1          | Adnan        | SQL
+
+Suppose you want to add a new student who hasn't enrolled in any course.
+This table may make it difficult to store the student without also providing a course.
+C. Delete Anomaly
+Deleting one piece of information accidentally removes another important piece of information.
+Example:
+student_id | student_name | course
+-----------|--------------|--------
+1          | Adnan        | SQL
+
+If you delete Adnan's SQL enrollment and this is his only row, you may also lose the information that Adnan exists.
+4. First Normal Form — 1NF
+A table is in 1NF when:
+- Each cell contains a single/atomic value
+- There are no multiple values in one cell
+- There are no repeating groups
+❌ Not 1NF
+student_id | name  | courses
+-----------|-------|-------------------
+1          | Adnan | SQL, Python, Java
+
+The courses column contains multiple values.
+✅ 1NF
+student_id | name  | course
+-----------|-------|--------
+1          | Adnan | SQL
+1          | Adnan | Python
+1          | Adnan | Java
+
+Remember:
+1NF = Atomic values
+5. Second Normal Form — 2NF
+A table is in 2NF when:
+1. It is already in 1NF
+2. There are no partial dependencies
+Partial dependency mainly matters when the table has a composite primary key.
+Example
+student_id | course_id | student_name | course_name | grade
+-----------|-----------|--------------|-------------|------
+1          | 101       | Adnan        | SQL         | A
+1          | 102       | Adnan        | Python      | B
+2          | 101       | Rahul        | SQL         | A
+
+Primary key:
+PRIMARY KEY (student_id, course_id)
+
+But:
+student_id → student_name
+course_id  → course_name
+
+student_name depends only on student_id, not the entire composite key.
+course_name depends only on course_id, not the entire composite key.
+These are partial dependencies.
+Better design
+students
+---------
+student_id
+student_name
+
+courses
+---------
+course_id
+course_name
+
+student_courses
+---------------
+student_id
+course_id
+grade
+
+Remember:
+2NF = 1NF + No Partial Dependency
+6. Third Normal Form — 3NF
+A table is in 3NF when:
+1. It is already in 2NF
+2. There are no transitive dependencies
+A transitive dependency happens when a non-key column depends on another non-key column.
+Example
+employee_id | employee_name | department_id | department_name
+------------|---------------|---------------|----------------
+1           | Adnan         | 10            | IT
+2           | Rahul         | 10            | IT
+3           | Sara          | 20            | HR
+
+Here:
+employee_id → department_id
+department_id → department_name
+
+Therefore:
+employee_id → department_name
+
+department_name depends indirectly on employee_id through department_id.
+This is a transitive dependency.
+
+Better design:
+
+employees
+---------
+employee_id
+employee_name
+department_id
+
+departments
+-----------
+department_id
+department_name
+
+Remember:
+3NF = 2NF + No Transitive Dependency
+
+7. 2NF vs 3NF
+Normal Form	Main Problem Removed
+1NF	Multiple values in one cell
+2NF	Partial dependency
+3NF	Transitive dependency
+BCNF	Stronger version of 3NF
+
+
+Easy way to remember:
+1NF → Atomic
+2NF → No Partial Dependency
+3NF → No Transitive Dependency
+
+8. BCNF — Boyce-Codd Normal Form
+BCNF is a stronger version of 3NF.
+Basic rule:
+Every determinant must be a candidate key.
+
+For our current level, understand the concept rather than memorizing complex examples.
+3NF → Standard practical normalization
+BCNF → Stronger form of 3NF
+
+9. Normalization vs Denormalization
+Normalization
+Split data into related tables.
+Advantages:
+- Less redundancy
+- Better consistency
+- Fewer update anomalies
+- Cleaner database structure
+Disadvantage:
+- More tables
+- More JOINs may be required
+Denormalization
+Intentionally keep some redundant data to improve:
+- Read performance
+- Reporting
+- Analytics
+- Query simplicity
+Example:
+Instead of always joining:
+employees
+departments
+
+you might intentionally store:
+employee_id | employee_name | department_id | department_name
+
+This creates redundancy, but can sometimes make reading data faster or simpler.
 

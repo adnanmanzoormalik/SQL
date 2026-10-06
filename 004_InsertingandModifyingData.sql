@@ -25,27 +25,27 @@ DELETE FROM students WHERE email IS NULL;
 
 -- >>> ALTER TABLE modifies the structure of an existing table rather than the records themselves.
 
--- >>> ADD COLUMN: adding columns to the table
+-- >>> 1. ADD COLUMN: adding columns to the table
 ALTER TABLE students ADD COLUMN country VARCHAR(20);
 ALTER TABLE students ADD COLUMN city VARCHAR(50) DEFAULT 'Srinagar';
 
 
--- >>> MODIFY COLUMN to change a column's definition, such as its data type or permitted length.
+-- >>> 2. MODIFY COLUMN to change a column's definition, such as its data type or permitted length.
 ALTER TABLE students MODIFY COLUMN name VARCHAR(100);
 
--- >>> RENAME COLUMN: rename a column
+-- >>> 3. RENAME COLUMN: rename a column
 ALTER TABLE students
 RENAME COLUMN name TO fullname;
 
 
--- >>> CHANGE COLUMN: can change the definition and the column name.
+-- >>> 4. CHANGE COLUMN: can change the definition and the column name.
 -- With CHANGE COLUMN, you must specify the column's data type and other required definition details. 
 -- Don't accidentally omit existing attributes such as NOT NULL or DEFAULT
 ALTER TABLE students
 CHANGE COLUMN fullname name VARCHAR(255);
 
 
--- >>> DROP COLUMN: removes the column and its stored values. it is change in the table not just hiding it
+-- >>> 5. DROP COLUMN: removes the column and its stored values. it is change in the table not just hiding it
 ALTER TABLE students
 DROP COLUMN country;
 

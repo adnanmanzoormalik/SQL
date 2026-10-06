@@ -20,15 +20,19 @@ DECIMAL(p,s)        Exact decimal values            499.99          e.g DECIMAL(
 BOOLEAN             True/false values               TRUE
 */
 
-SHOW TABLES; -- shows tables in currently using database
+SHOW TABLES; -- shows tables in currently used database
 
--- DESCRIBE table_name; or DESC table_name; >>> The DESCRIBE command shows a table's structure, including its column names, data types, whether NULL is allowed, key information, and default values.
+
+-- >>> DESCRIBE table_name; or DESC table_name; >>> The DESCRIBE command shows a table's structure, including its column names, data types, whether NULL is allowed, key information, and default values.
 DESC students;
 
 
 SHOW CREATE TABLE students; -- >>> Show the SQL definition used to create the table
 SELECT DATABASE(); -- >>> shows which DB we are using
 
+/*
+DESC employees; shows the column-by-column structure, while SHOW CREATE TABLE employees; gives the exact SQL DDL script needed to recreate the entire table.
+*/
 
 
 

@@ -11,11 +11,12 @@ SELECT department, COUNT(*) FROM employees GROUP BY department;
 SELECT department, SUM(salary) FROM employees GROUP BY department;
 SELECT department, AVG(salary) FROM employees GROUP BY department;
 
+
 -- using GROUP BY with multiple columns
 SELECT department, age, COUNT(*) FROM employees GROUP BY department, age;
 
 
--- >>> HAVING 
+-- >>> HAVING
 SELECT 
     department, 
     AVG(salary) AS avg_salary 
