@@ -34,6 +34,7 @@ VALUES
 
 SELECT * FROM departments;
 SELECT * FROM employees; 
+
 -- JOIN: is an operation used to combine rows from two or more tables based on a related column between them (typically a foreign key referencing a primary key).
 
 SELECT *
