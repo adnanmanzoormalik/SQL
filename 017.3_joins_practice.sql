@@ -123,6 +123,7 @@ WHERE e.employee_id IS NULL;
 
 -- 3. Find the names of employees and the projects they are specifically assigned to, along with their assigned roles. 
 -- Required columns: - employee_name - project_name - assigned_role Only include employees who have project assignments.
+USE join_practice;
 SELECT e.employee_name, p.project_name, ep.assigned_role FROM employees as e
 JOIN employee_projects AS ep
     ON ep.employee_id = e.employee_id
@@ -187,6 +188,11 @@ WHERE NOT EXISTS(
     FROM attendance AS a
     WHERE a.employee_id = e.employee_id
     AND a.attendance_date = "2026-10-01"
-)
+);
 
--- 10. 
+-- 10. A company wants to identify employees who are working in the same department as at least one other employee, but earn a higher salary than every other employee in that department.
+-- Display: - employee_name - department_name - salary
+-- Rules:
+-- - Exclude employees who have no department.
+-- - If an employee is the only person in their department, do not include them.
+-- - Include only employees whose salary is strictly greater than every colleague's salary in that department.
