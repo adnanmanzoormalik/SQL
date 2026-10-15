@@ -1,16 +1,3 @@
--- CTE - Youtube
-
-
-
-
-
-
-
-
-
-
-
-
 -- CTE stands for Common Table Expression.
 -- A CTE is a named result set that you define at the beginning of a SQL statement using the WITH clause. You can then reference it in the main query as if it were a table.
 
@@ -91,6 +78,10 @@ SELECT * FROM high_avg_dept_sal ORDER BY avg_sal DESC;
 
 -- CTEs vs subqueries
 -- A subquery is a query nested inside another query. A CTE is a named query defined before the main query.
+
+
+
+
 -- A recursive CTE has two main parts:
 -- 1. Anchor member: supplies the starting rows.
 -- 2. Recursive member: uses the previous iteration's rows to find the next rows.
@@ -107,7 +98,26 @@ SELECT * FROM numbers;
 
 
 
+WITH RECURSIVE hierarchy AS (
+    SELECT 
+    employee_id, 
+    manager_id,
+    0 AS hierarchy_level
+    FROM staff
+    WHERE employee_id =1
 
+    UNION ALL
+
+    SELECT 
+        s.employee_id,
+        s.manager_id,
+        h.hierarchy_level + 1
+    FROM staff AS s
+    JOIN hierarchy as h
+        ON s.manager_id = h.employee_id
+)
+SELECT * FROM hierarchy
+ORDER BY hierarchy_level;
 
 
 
