@@ -68,6 +68,11 @@ FROM emps2;
 -- Without IFNULL(), adding a NULL bonus to a salary normally produces NULL.
 
 
+SELECT NULLIF(10, 10);
+-- Result: NULL
+SELECT NULLIF(10, 20);
+-- Result: 10
+
 
 -- >>> COALESCE() checks multiple expressions from left to right and returns the first value that is not NULL.
 SELECT name, COALESCE(manager_id, 0) AS display_mng_id FROM emps2;

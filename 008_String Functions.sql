@@ -19,6 +19,7 @@ SELECT * FROM emps1;
 SELECT CONCAT(first_name," ", last_name) AS full_name FROM emps1;
 SELECT CONCAT("EMPLOYEE ", id,": ", first_name) AS employee_label FROM emps1;
 -- In MySQL, CONCAT() returns NULL if any argument is NULL.
+SELECT CONCAT_WS('-', 'adnan', 'manzoor', 'malik');
 
 -- If you want to treat missing values as empty strings, you can use COALESCE() >>> to be studied in future
 
@@ -43,11 +44,20 @@ SELECT TRIM("-" FROM "-----Adnan----");
 -- TRIM() does not remove every kind of whitespace in every situation. Tabs and newline characters may require other functions or explicit replacements.
 -- Also, TRIM() in a SELECT statement doesn't permanently clean the stored column. Updating the data requires a separate statement.
 
+-- LTRIM() removes leading spaces (at the beginning).
+-- RTRIM() removes trailing spaces (at the end).
+-- TRIM() removes spaces from both ends.
+
+
 -- >>> SUBSTRING() extracts part of a string.
 SELECT SUBSTRING("Adnan Manzoor", 1, 5) AS firstName; -- >>> 1 is the starting position and inclusive and 5 is the number of characters
 SELECT SUBSTRING("Adnan Manzoor Malik", 7, 7) AS middleName; -- >>> 7 is the starting position and 7 is the no of characters
 SELECT SUBSTRING("Adnan Manzoor Malik",7) AS name; -- >>> if we omit the number of characters it starts from 7 to the end
 SELECT SUBSTRING(email, 1, 5) AS name FROM emps1; 
+
+
+SELECT LEFT("kCaOMPUTER", 3);
+SELECT RIGHT('adnan', 3);
 
 
 -- >>> REPLACE() replaces every occurrence of a specified substring with another string.
@@ -56,6 +66,9 @@ SELECT REPLACE("Adnan Malik", "Malik", "Manzoor") AS chnaged_name;
 SELECT REPLACE(email, "gmail", "yahoo") AS changed_email FROM emps1;
 SELECT REPLACE("123-456-7890", "-", " ") AS new_phone;
 
+
+
+SELECT LOCATE('SQL', 'Learn SQL Today');
 
 -- >>> combining string functions
 SELECT UPPER(TRIM("   adnan manzoor    ")) AS upper_trim_name;

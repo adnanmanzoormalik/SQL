@@ -37,6 +37,10 @@ SELECT * FROM employees;
 SELECT id, name FROM employees WHERE MOD(id,2)=0;
 
 
+
+SELECT POWER(3,2);
+SELECT SQRT(81);
+x
 -- Combining numeric functions
 SELECT (ROUND(ABS(-12.17), 2));
 

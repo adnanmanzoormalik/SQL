@@ -57,7 +57,7 @@ SELECT * FROM employees WHERE name NOT LIKE "%a";
 
 -- Wildcards: "%" >>> matches 0 or more characters ....... "_" >>> Matches exactly one character.
 SELECT * FROM employees WHERE name LIKE "%a%"; -- >>> will return emps whose name has a in it
-SELECT * FROM employees WHERE name LIKE "A%n"; -- >>
+SELECT * FROM employees WHERE name LIKE "A%n"; -- >>> starts with A and ends with n
 SELECT * FROM employees WHERE department LIKE "_T"; -- >>> will return emps whose dept has 2 letters and ends with T
 /*
 Pattern         Meaning

@@ -22,6 +22,7 @@ WHERE id=2; -- >>> without using where here all the values in age column will ch
 -- >>> DELETE statement removes rows from a table.
 DELETE FROM students WHERE id=3;
 DELETE FROM students WHERE email IS NULL;
+-- Running DELETE FROM students; without a WHERE clause will delete every single row in the students table, leaving the table completely empty.
 
 -- >>> ALTER TABLE modifies the structure of an existing table rather than the records themselves.
 
@@ -51,7 +52,7 @@ DROP COLUMN country;
 
 -- >>> DROP TABLE: removes an entire table, including its structure and data. Afterward, the students table no longer exists.
 DROP TABLE students;
-DROP TABLE IF EXISTS students; >>> to avoid an error 
+DROP TABLE IF EXISTS students; -- >>> to avoid an error 
 
 -- TRUNCATE TABLE: removes all records from a table while retaining its structure.
 TRUNCATE TABLE students; -- >>> resets AUTO_INCREMENT counter in typical MySQL use.
@@ -66,3 +67,10 @@ Verify after execution: Inspect the table with a follow-up query to confirm only
 */
 
 SELECT * FROM students;
+
+
+
+
+-- • CHAR(2): Fixed length. Best for consistent 2-character data ('US', 'UK'). Storing 'U' gets padded with a trailing space on disk ('U ') to occupy the full 2 characters.
+-- • VARCHAR(2): Variable length. Best for fluctuating lengths ('U', 'UK'). Storing 'U' takes only 1 character + 1 length byte, with no padding added.
+-- Neither accepts 3 or more characters (e.g., 'USA' throws an error in both).
